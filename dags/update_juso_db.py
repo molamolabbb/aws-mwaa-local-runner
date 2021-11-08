@@ -68,7 +68,7 @@ def merge_db(s3, s3_bucket_name, **context):
 #     ko_df = obj.get()['Body']
 #     ko_df = pd.read_csv(ko_df)
     
-    obj = s3.Object(s3_bucket_name,'Dataframe/ko_en_df.csv')
+    obj = s3.Object(s3_bucket_name,'juso_db/Dataframe/ko_en_df.csv')
     ko_en_df = obj.get()['Body']
     ko_en_df = pd.read_csv(ko_en_df)
     ko_en_df.pop('Unnamed: 0')
@@ -105,12 +105,13 @@ s3 = boto3.resource('s3')
 s3_bucket_name = 'shipping-watch'
 bucket = s3.Bucket(s3_bucket_name)
 
+# scheduler_interval = "min hour day month year"
     
 with DAG(
     dag_id='update_juso_db',
-    schedule_interval=None,
+    schedule_interval='0 15 15 * *',
     start_date=days_ago(2),
-    max_active_runs=1,
+    max_active_runs=12,
     #tags=['config'],
 ) as dag:
     download_new_address = PythonOperator(
