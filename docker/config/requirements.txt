@@ -11,7 +11,7 @@ apache-airflow-providers-sqlite==1.0.2
 apispec==3.3.2
 argcomplete==1.12.3
 attrs==20.3.0
-Babel==2.9.0
+babel==2.9.1
 billiard==3.6.4.0
 blinker==1.4
 boto3==1.17.53
@@ -36,7 +36,7 @@ dnspython==1.16.0
 docutils==0.16
 email-validator==1.1.2
 Flask==1.1.2
-Flask-AppBuilder==3.2.3
+Flask-AppBuilder==3.3.0
 Flask-Babel==1.0.0
 Flask-Caching==1.10.1
 Flask-JWT-Extended==3.25.1
